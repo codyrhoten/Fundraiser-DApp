@@ -3,7 +3,6 @@ import Link from 'next/link';
 import styles from './Header.module.css';
 
 export default function Header({ metamaskInstalled, walletButtonPressed, walletAddress }) {
-    console.log(walletAddress);
     return (
         <Navbar fixed='top' style={{ backgroundColor: '#1e1e1e' }}>
             <Navbar.Brand>

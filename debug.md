@@ -52,7 +52,8 @@ Contracts won't deploy on Goerli test network
 could not detect network (event="noNetwork", code=NETWORK_ERROR, version=providers/5.7.2)
 #### Observation:
 .env file is being read, as the deploy.js file did log the deployer's address to the console as programmed
-#### Solution: Used IPFS Infura project info rather than the Web3 API project info, which I had to create.
+#### Solution: 
+Used IPFS Infura project info rather than the Web3 API project info, which I had to create.
 
 ### Issue \#8 1/13/23:
 IPFS won't authorize my dapp to send meta data to it
