@@ -5,8 +5,9 @@
     "main": "index.js",
     "typings": "dist/index",
     "dependencies": {
+        "@nomicfoundation/hardhat-ignition": "^0.15.9",
         "@nomicfoundation/hardhat-network-helpers": "^1.0.7",
-        "@nomicfoundation/hardhat-toolbox": "^1.0.2",
+        "@nomicfoundation/hardhat-toolbox": "^5.0.0",
         "@openzeppelin/contracts": "^4.8.0",
         "@web3modal/ethereum": "^2.0.0-rc.1",
         "@web3modal/react": "^2.0.0-rc.1",
@@ -16,13 +17,13 @@
         "command-exists": "^1.2.9",
         "commander": "^8.3.0",
         "dotenv": "^16.0.3",
-        "ethers": "^5.7.2",
+        "ethers": "^6.13.5",
         "follow-redirects": "^1.15.2",
         "ganache-cli": "^6.12.2",
-        "ipfs-http-client": "^59.0.0",
+        "ipfs-http-client": "^57.0.3",
         "js-sha3": "^0.8.0",
         "memorystream": "^0.3.1",
-        "next": "^13.1.7",
+        "next": "^15.1.5",
         "os-tmpdir": "^1.0.2",
         "react": "^18.2.0",
         "react-bootstrap": "^2.7.0",
@@ -30,13 +31,15 @@
         "react-toastify": "^9.1.1",
         "semver": "^5.7.1",
         "tmp": "^0.0.33",
-        "wagmi": "^0.10.5",
+        "wagmi": "^2.14.8",
         "web3modal": "^1.9.11"
     },
     "devDependencies": {
-        "hardhat": "^2.12.3",
+        "@nomicfoundation/hardhat-ethers": "^3.0.8",
+        "@nomicfoundation/hardhat-ignition-ethers": "^0.15.9",
+        "hardhat": "^2.22.18",
         "solc": "^0.8.17",
-        "solidity-coverage": "^0.7.22"
+        "solidity-coverage": "^0.8.14"
     },
     "scripts": {
         "dev": "next dev",

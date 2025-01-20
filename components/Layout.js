@@ -32,12 +32,12 @@ export default function Layout({ children }) {
             setMetamaskInstalled(true);
             console.log(network);
 
-            if (network !== 'Goerli') {
+            if (network !== 'Sepolia') {
                 setStatus(
                     <Modal show={show} centered>
                         <Modal.Body>
                             <p className='p-3'>
-                                In your MetaMask wallet, switch to the Goerli Test Network. You may have to turn on "show test networks" in your MetaMask settings.
+                                In your MetaMask wallet, switch to the Sepolia Test Network. You may have to turn on "show test networks" in your MetaMask settings.
                             </p>
                         </Modal.Body>
                     </Modal>
@@ -89,8 +89,8 @@ export default function Layout({ children }) {
         if (window.ethereum) {
             let chain = await ethereum.request({ method: 'eth_chainId' });
 
-            if (chain === '0x5') {
-                chain = 'Goerli';
+            if (chain === '0xaa36a7') {
+                chain = 'Sepolia';
             }
 
             return chain;
@@ -118,7 +118,7 @@ export default function Layout({ children }) {
                 walletAddress={walletAddress}
                 walletButtonPressed={walletButtonPressed}
             />
-            {!metamaskInstalled || network !== 'Goerli' ? <WalletStatus status={status} /> : children}
+            {!metamaskInstalled || network !== 'Sepolia' ? <WalletStatus status={status} /> : children}
             <ToastContainer />
         </Container>
     );
