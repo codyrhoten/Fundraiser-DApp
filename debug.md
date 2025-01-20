@@ -4,8 +4,8 @@
 "Should only get data of houses on the market purchased by msg.sender" test fails in Market contract 
 project
 #### Error: 
-call revert exception; VM Exception while processing transaction: reverted with panic code 50 [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (method="getListedHouses()", data="0x4e487b710000000000000000000000000000000000000000000000000000000000000032", errorArgs=[{"type":"BigNumber","hex":"0x32"}], errorName="Panic", errorSignature="Panic(uint256)", reason=null, code=CALL_EXCEPTION, version=abi/5.7.0)
-Reason accd to docs: 0x32: If you access an array, bytesN or an array slice at an out-of-bounds or negative index (i.e. x[i] where i >= x.length or i < 0).
+call revert exception; VM Exception while processing transaction: reverted with panic code 50 [ See: https://links.ethers.org/v5-errors-CALL_EXCEPTION ] (method="getListedHouses()", data="0x4e487b710000000000000000000000000000000000000000000000000000000000000032", errorArgs=[\{"type":"BigNumber","hex":"0x32"}], errorName="Panic", errorSignature="Panic(uint256)", reason=null, code=CALL_EXCEPTION, version=abi/5.7.0)
+Reason accd to docs: 0x32: If you access an array, bytesN or an array slice at an out-of-bounds or negative index (i.e. x\[i] where i >= x.length or i < 0).
 #### Solution 1/10/23: 
 After mentally iterating through getListedHouses(), I found that after buying a house and changing the number of 
 listed houses, the index of the houses array created in this fn didn't contain a "0th" element if the first house was 
@@ -37,7 +37,7 @@ CORS request did not succeed
 ### Issue \# 5 1/12/23:
 Won't mint a house using NFT contract
 #### MetaMask - 
-RPC Error: [ethjs-query] while formatting outputs from RPC '{"value":{"code":-32603,"data":{"code":-32000,"message":"Nonce too high. Expected nonce to be 0 but got 3. Note that transactions can't be queued when automining.","data":{"message":"Nonce too high. Expected nonce to be 0 but got 3. Note that transactions can't be queued when automining."}}}}' 
+RPC Error: \[ethjs-query] while formatting outputs from RPC '{"value":{"code":-32603,"data":{"code":-32000,"message":"Nonce too high. Expected nonce to be 0 but got 3. Note that transactions can't be queued when automining.","data":{"message":"Nonce too high. Expected nonce to be 0 but got 3. Note that transactions can't be queued when automining."}}}}' 
 #### Solution: 
 Reset account after having rebooted local blockchain instance (Hardhat network)
 
@@ -105,3 +105,13 @@ Data doesn't upload to IPFS.
 HTTPError: not allowed - invalid origin - Forbidden 403
 #### Solution:
 Whitelist my localhost port (currently running) and website origin on Infura IPFS project
+
+### Issue \#15 1/19/25:
+Hardhat and ethers updated with the new ignition way of deploying contracts. I'm unable to deploy in the same way using only scripts/deploy.js.
+#### Error:
+```IgnitionError: IGN702: Module validation failed with reason: Invalid artifact given```
+#### Solution:
+I was using the CLI script ```npx hardhat run scripts/deploy.js --network localhost``` 
+rather than
+```npx hardhat ignition deploy ignition/modules/NFT_Indeed.js --network localhost```.
+My file was correct in ignition/modules and I didn't need scripts/deploy.js.

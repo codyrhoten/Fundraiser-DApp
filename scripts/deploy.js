@@ -41,7 +41,8 @@ const deploymentModule = require("../ignition/modules/NFT_Indeed");
 
 async function main() {
     // Initialize Ignition with the desired network
-    const ignition = new Ignition(hre, "sepolia");
+    const ignition = new Ignition(hre, "hardhat");
+    // const ignition = new Ignition(hre, "sepolia");
 
     console.log("Starting deployment...");
 
